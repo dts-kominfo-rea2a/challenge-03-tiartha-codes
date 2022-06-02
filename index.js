@@ -21,16 +21,35 @@ const dataBelanjaan = [
 ];
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const listBelanjaan = null;
+const listBelanjaan = (belanjaan) => {
+  let items = [];
+
+  for (let counter = 0; counter < belanjaan.length; counter++) {
+    items.push('- ' + belanjaan[counter].nama + ' x ' + belanjaan[counter].kuantitas);
+  }
+
+  return items;
+
+}
+
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const totalBelanjaan = null;
+const totalBelanjaan = (belanjaan) => {
+
+  let totalHarga = 0;
+  for (let counter = 0; counter < belanjaan.length; counter++) {
+    totalHarga += parseInt(belanjaan[counter].harga) * parseInt(belanjaan[counter].kuantitas);
+  }
+
+  return totalHarga;
+
+}
 
 // ! JANGAN DIMODIFIKASI
 const main = () => {
   console.log("Selamat datang customer");
 
-  console.log("Belanjaan Anda adalah:");
+  console.log("Belanjaan Anda adalah: \n");
   console.log(listBelanjaan?.(dataBelanjaan)?.join("\n"));
   console.log(
     "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan?.(dataBelanjaan)
